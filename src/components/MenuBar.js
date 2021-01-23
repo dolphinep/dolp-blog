@@ -20,7 +20,7 @@ function MenuBar() {
                 active={activeItem === user.username}
                 onClick={handleItemClick}
                 as={Link}
-                to="/"
+                to="/dolp-blog"
             />
             <Menu.Item
                 name='contact'
@@ -50,7 +50,7 @@ function MenuBar() {
                     active={activeItem === 'home'}
                     onClick={handleItemClick}
                     as={Link}
-                    to="/"
+                    to="/dolp-blog"
                 />
                 <Menu.Item
                     name='contact'

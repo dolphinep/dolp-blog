@@ -255,7 +255,7 @@ class QuillEditor extends React.Component {
                 header: { 'content-type': 'multipart/form-data' }
             }
             formData.append("image", file);
-            axios.post(`/image-upload`, formData, config)
+            axios.post(`https://dolp-server.herokuapp.com/image-upload`, formData, config)
                 .then(response => {
                     if (response.status === 200) {
                         const quill = this.reactQuillRef.getEditor();
