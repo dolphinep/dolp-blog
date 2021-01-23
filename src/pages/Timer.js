@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Divider, Grid, Segment } from 'semantic-ui-react'
+import { Container, Grid } from 'semantic-ui-react'
 import '../sass/timer.scss'
 let t = new Date()
 

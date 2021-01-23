@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import "react-quill/dist/quill.snow.css";
-import gql from 'graphql-tag';
 import { Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
@@ -258,7 +257,7 @@ class QuillEditor extends React.Component {
             formData.append("image", file);
             axios.post(`/image-upload`, formData, config)
                 .then(response => {
-                    if (response.status == 200) {
+                    if (response.status === 200) {
                         const quill = this.reactQuillRef.getEditor();
                         quill.focus();
 
@@ -288,9 +287,9 @@ class QuillEditor extends React.Component {
             const file = e.currentTarget.files[0];
 
             let formData = new FormData();
-            const config = {
-                header: { 'content-type': 'multipart/form-data' }
-            }
+            // const config = {
+            //     header: { 'content-type': 'multipart/form-data' }
+            // }
             formData.append("file", file);
 
             // axios.post('/api/blog/uploadfiles', formData, config)
@@ -325,9 +324,9 @@ class QuillEditor extends React.Component {
             const file = e.currentTarget.files[0];
 
             let formData = new FormData();
-            const config = {
-                header: { 'content-type': 'multipart/form-data' }
-            }
+            // const config = {
+            //     header: { 'content-type': 'multipart/form-data' }
+            // }
             formData.append("file", file);
 
             // axios.post('/api/blog/uploadfiles', formData, config)
@@ -420,14 +419,5 @@ class QuillEditor extends React.Component {
         'image', 'video', 'file', 'link', "code-block", "video", "blockquote", "clean"
     ];
 }
-
-const UPLOAD_MUTATION = gql`
-  mutation uploadPhoto($file: Upload!) {
-    uploadPhoto(file: $file) {
-        filename
-        path
-    }
-  }
-`;
 
 export default QuillEditor;

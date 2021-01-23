@@ -8,7 +8,7 @@ import { setContext } from 'apollo-link-context'
 import { onError } from 'apollo-link-error'; //add apollo error link
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:5000/graphql'
+    uri: 'https://dolp-server.herokuapp.com/graphql'
 })
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

@@ -1,4 +1,4 @@
-import { Card, Image, Icon, Grid, Container, Header, Divider } from 'semantic-ui-react'
+import { Image, Container, Header, Divider } from 'semantic-ui-react'
 import '../sass/home.scss'
 
 const AuthorCard = () => {

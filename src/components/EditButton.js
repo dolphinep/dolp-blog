@@ -11,7 +11,6 @@ function EditButton({ postID, commentID, callback }) {
         <>
             <MyPopup content={commentID ? 'Edit comment' : 'Write Story'}>
                 <Button
-                    as="div"
                     floated="right"
                     icon
                     size="small"

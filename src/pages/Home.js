@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { Grid, Header, Segment, Transition, Dimmer, Loader } from 'semantic-ui-react'
+import { Grid, Header, Segment, Transition, Loader } from 'semantic-ui-react'
 
 import { FETCH_POSTS_QUERY } from '../utils/graphql';
 import PostCard from '../components/PostCard'
