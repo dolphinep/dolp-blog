@@ -124,7 +124,7 @@ function SinglePost(props) {
                                 <Button floated="right" color="teal" onClick={() => setEditing(!editing)}>Add Story...</Button>)}
                     </Card.Content>
                     <Divider hidden />
-                    {user && (editing ?
+                    {user && editing ?
                         <QuillEditor
                             placeholder={"Start Posting Something"}
                             old={story}
@@ -133,7 +133,7 @@ function SinglePost(props) {
                         />
                         :
                         (story && parse(story))
-                    )
+                    
                     }
                     <Header as='h3' dividing>Comment</Header>
                     {comments.map(comment => (
