@@ -24,6 +24,7 @@ function App() {
         <Container>
           <MenuBar />
           <Route exact path='/' component={Home} />
+          <Route exact path='/dolp-blog' component={Home} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/timer' component={Timer} />
           <AuthRoute exact path='/login' component={Login} />
