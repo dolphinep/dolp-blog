@@ -37,13 +37,13 @@ function PostForm() {
                 <Form.Field>
                     <Form.Input
                         placeholder="Title"
-                        name="Title"
+                        name="title"
                         onChange={onChange}
                         value={values.title}
                         error={error ? true : false}
                     />
                     <Form.TextArea
-                        placeholder="Sub-Title"
+                        placeholder="Detail"
                         name="body"
                         onChange={onChange}
                         value={values.body}
