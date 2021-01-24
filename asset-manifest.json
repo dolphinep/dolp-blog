@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/dolp-blog/static/css/main.d9a47e49.chunk.css",
-    "main.js": "/dolp-blog/static/js/main.25ad0f21.chunk.js",
-    "main.js.map": "/dolp-blog/static/js/main.25ad0f21.chunk.js.map",
+    "main.js": "/dolp-blog/static/js/main.d8763259.chunk.js",
+    "main.js.map": "/dolp-blog/static/js/main.d8763259.chunk.js.map",
     "runtime-main.js": "/dolp-blog/static/js/runtime-main.d5dfb45b.js",
     "runtime-main.js.map": "/dolp-blog/static/js/runtime-main.d5dfb45b.js.map",
     "static/css/2.0b622b71.chunk.css": "/dolp-blog/static/css/2.0b622b71.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.0b622b71.chunk.css",
     "static/js/2.bfc1f598.chunk.js",
     "static/css/main.d9a47e49.chunk.css",
-    "static/js/main.25ad0f21.chunk.js"
+    "static/js/main.d8763259.chunk.js"
   ]
 }
