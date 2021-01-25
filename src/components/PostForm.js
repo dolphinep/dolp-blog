@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Form, Header } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Button, Divider, Dropdown, Form, Header } from 'semantic-ui-react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -9,8 +9,22 @@ import { FETCH_POSTS_QUERY } from '../utils/graphql';
 function PostForm() {
     const { values, onChange, onSubmit } = useForm(createPostCallback, {
         title: '',
-        body: ''
+        body: '',
+        tags: []
     });
+
+    const [options, setOptions] = useState(
+        [
+            { key: 'DB', text: 'DB', value: 'DB' },
+            { key: 'DEV', text: 'DEV', value: 'DEV' },
+            { key: 'BLOCKCHAIN', text: 'BLOCKCHAIN', value: 'BLOCKCHAIN' },
+            { key: 'WEB', text: 'WEB', value: 'WEB' },
+            { key: 'MOBILE', text: 'MOBILE', value: 'MOBILE' },
+        ]
+    )
+    const handleAddition = (e, { value }) => {
+        setOptions([...options, { text: value, value }])
+    }
 
     const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
         refetchQueries: [{
@@ -22,6 +36,7 @@ function PostForm() {
         onCompleted() {
             values.title = ""
             values.body = ""
+            values.tag = []
         },
         variables: values,
     });
@@ -29,6 +44,7 @@ function PostForm() {
     function createPostCallback() {
         createPost();
     }
+
 
     return (
         <>
@@ -38,18 +54,32 @@ function PostForm() {
                     <Form.Input
                         placeholder="Title"
                         name="title"
-                        onChange={onChange}
+                        onChange={(e, { value }) => onChange(e, "title", value)}
                         value={values.title}
                         error={error ? true : false}
                     />
                     <Form.TextArea
                         placeholder="Detail"
                         name="body"
-                        onChange={onChange}
+                        onChange={(e, { value }) => onChange(e, "body", value)}
                         value={values.body}
                         error={error ? true : false}
                     />
-                    <Button  compact type="submit" color="blue">
+                    <Dropdown
+                        options={options}
+                        placeholder='Tags'
+                        name='tags'
+                        search
+                        selection
+                        fluid
+                        multiple
+                        allowAdditions
+                        value={values.tags}
+                        onAddItem={handleAddition}
+                        onChange={(e, { value }) => onChange(e, "tags", value)}
+                    />
+                    <Divider hidden />
+                    <Button compact type="submit" color="blue">
                         Submit
                     </Button>
                 </Form.Field>
@@ -66,12 +96,13 @@ function PostForm() {
 }
 
 const CREATE_POST_MUTATION = gql`
-  mutation createPost($title: String!, $body: String!) {
-    createPost(title: $title, body:$body) {
+  mutation createPost($title: String!, $body: String!, $tags:[String]!) {
+    createPost(title: $title, body:$body, tags:$tags) {
       id
       title
       body
       story
+      tags
       createdAt
       username
       likes {

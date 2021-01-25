@@ -73,6 +73,7 @@ function SinglePost(props) {
             id,
             title,
             body,
+            tags,
             story,
             createdAt,
             username,
@@ -93,6 +94,9 @@ function SinglePost(props) {
                     <Card fluid>
                         <Card.Content>
                             <Card.Header>{title}</Card.Header>
+                            <Card.Meta>
+                                {tags.map(tag => <Button basic content={tag} size="mini" compact color="blue" />)}
+                            </Card.Meta>
                             <Card.Meta>{username}</Card.Meta>
                             <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
                             <Card.Description>{body}</Card.Description>
@@ -133,7 +137,7 @@ function SinglePost(props) {
                         />
                         :
                         (story && parse(story))
-                    
+
                     }
                     <Header as='h3' dividing>Comment</Header>
                     {comments.map(comment => (
@@ -205,6 +209,7 @@ const FETCH_POST_QUERY = gql`
             id
             title
             body
+            tags
             story
             createdAt
             username

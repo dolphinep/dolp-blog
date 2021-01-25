@@ -48,7 +48,7 @@ function Login(props) {
                             iconPosition='left'
                             value={values.username}
                             error={errors.username ? true : false}
-                            onChange={onChange}
+                            onChange={(e, { value }) => onChange(e, 'username', value)}
                         />
                         <Form.Input
                             placeholder="Password.."
@@ -58,7 +58,7 @@ function Login(props) {
                             iconPosition='left'
                             value={values.password}
                             error={errors.password ? true : false}
-                            onChange={onChange}
+                            onChange={(e, { value }) => onChange(e, 'password', value)}
                         />
                         <Button type="submit" fluid color="blue">Login</Button>
                     </Segment>

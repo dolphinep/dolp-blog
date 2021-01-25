@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Card, Icon, Label, Image } from 'semantic-ui-react';
+import { Button, Card, Icon, Label, Image, Divider } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
@@ -10,7 +10,7 @@ import EditButton from './EditButton'
 import MyPopup from '../utils/MyPopup';
 
 function PostCard({
-    post: { title, body, createdAt, id, username, likeCount, commentCount, likes }
+    post: { title, body, createdAt, id, username, likeCount, commentCount, likes, tags }
 }) {
     const { user } = useContext(AuthContext);
 
@@ -22,7 +22,12 @@ function PostCard({
                     size="mini"
                     src="https://react.semantic-ui.com/images/avatar/large/molly.png"
                 />
-                <Card.Header as={Link} to={`/posts/${id}`}>{title}</Card.Header>
+                <Card.Header as={Link} to={`/posts/${id}`}>
+                    {title}
+                </Card.Header>
+                <Card.Meta>
+                    {tags.map(tag => <Button basic content={tag} size="mini" compact color="blue" />)}
+                </Card.Meta>
                 <Card.Meta as={Link} to={`/posts/${id}`}>
                     {moment(createdAt).fromNow(true)}
                 </Card.Meta>
