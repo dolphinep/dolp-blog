@@ -364,6 +364,10 @@ class QuillEditor extends React.Component {
                     <button className="ql-italic" />
                     <button className="ql-underline" />
                     <button className="ql-strike" />
+                    <button className="ql-list" value="ordered" />
+                    <button className="ql-list" value="bullet" />
+                    <button className="ql-indent" value="-1" />
+                    <button className="ql-indent" value="+1" />
                     <button className="ql-insertImage">
                         <Icon name="picture" />
                     </button>
@@ -416,6 +420,7 @@ class QuillEditor extends React.Component {
     formats = [
         'header',
         'bold', 'italic', 'underline', 'strike',
+        'list', 'bullet', 'indent',      
         'image', 'video', 'file', 'link', "code-block", "video", "blockquote", "clean"
     ];
 }
