@@ -16,7 +16,7 @@ function Home() {
     return (
         <Grid style={{ marginTop: '3em' }} relaxed stackable reversed='mobile' >
             <Grid.Column width={12}>
-                {user && (user.username === "ping" )&& (
+                {(user && user.username === "ping" )&& (
                     <Segment>
                         <PostForm />
                     </Segment>
