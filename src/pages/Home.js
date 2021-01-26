@@ -16,7 +16,7 @@ function Home() {
     return (
         <Grid style={{ marginTop: '3em' }} relaxed stackable reversed='mobile' >
             <Grid.Column width={12}>
-                {user && (
+                {user && (user.username === "ping" )&& (
                     <Segment>
                         <PostForm />
                     </Segment>
@@ -27,7 +27,7 @@ function Home() {
                 <Grid columns={3}>
                     <Grid.Row stretched stackable columns={2}>
                         {loading ? (
-                            <Loader>Loading</Loader>
+                            <Loader active inline='centered' content='Loading... This may take a few seconds' />
                         ) : (
                                 <Transition.Group>
                                     {data.getPosts &&
