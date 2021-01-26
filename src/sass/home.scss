@@ -65,6 +65,7 @@ $fontsize: 18px;
 .ui.card>.content>.header:not(.ui){
   color: $headercolor;
   font-family: 'Kanit', sans-serif;
+  font-weight: 400;
 }
 
 .ui.card>.image, .ui.cards>.card>.image.author-image{
@@ -73,6 +74,8 @@ $fontsize: 18px;
 
 .ui.header {
     color:  $headercolor;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
 }
 
 .text-editor {

@@ -6,6 +6,12 @@
 
 body,h1,h2,h3{
   font-family: 'Kanit', sans-serif;
+  font-weight: 200;
+}
+
+header{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
 }
 
 body{
